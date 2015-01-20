@@ -8,6 +8,12 @@ Manually update the system, For that: Apple Icon > Software Update...
 ## Install Command Line tools
 Before running the mac set up script. Please install the Xcode from App Store, and Command Line Tools for Xcode. These include compilers that will allow you to build things from source.
 
+## Install zsh
+[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
+``` bash
+https://github.com/robbyrussell/oh-my-zsh
+```
+
 ## Install Dev Tools
 ``` bash
   $ zsh < <(curl -s https://github.com/joeljames/dev-setup/blob/master/mac/mac)
