@@ -9,9 +9,10 @@ Manually update the system, For that: Apple Icon > Software Update...
 Before running the mac set up script. Please install the Xcode from App Store, and Command Line Tools for Xcode. These include compilers that will allow you to build things from source.
 
 ## Install Dev Tools
-    ``` bash
-    $ https://github.com/joeljames/dev-setup.git/mac/mac
-    ```
+``` bash
+  $ zsh < <(curl -s https://github.com/joeljames/dev-setup/blob/master/mac/mac)
+```
+
 ## What Gets Installed
 <ul>
 <li> Homebrew (Package management tool) </li>
