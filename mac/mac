@@ -48,6 +48,9 @@ brew install node
 echo "Install Rails and Bundler(Bundler installs with rails)..."
 gem install Rails
 
+echo "Installing the foreman..."
+gem install foreman
+
 echo "Install Prostgres..."
 brew install postgresql
 
