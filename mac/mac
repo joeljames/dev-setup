@@ -1,0 +1,83 @@
+#!/bin/bash
+
+echo "Installing Homebrew ..."
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+brew update
+brew upgrade
+
+echo "Installing brew cask ..."
+brew install caskroom/cask/brew-cask
+
+echo "Installing drop box ..."
+brew cask install dropbox
+
+echo "Installing google crome ..."
+brew cask install google-chrome
+
+echo "Installing tree ..."
+brew install tree
+
+echo "Installing wget..."
+brew install wget
+
+echo "Installing git and setting up config..."
+brew install git
+git --version
+wget -P $HOME https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitconfig
+
+echo "Install latest version of python2.7.X..."
+brew install python
+
+echo "Install latest version of python3..."
+brew install python3
+
+echo "Install Python Setup tools..."
+curl https://bootstrap.pypa.io/ez_setup.py -o - | python
+
+echo "Install pip2..."
+easy_install pip
+
+echo "Install virtualenv..."
+pip install virtualenv
+
+echo "Install node..."
+brew install node
+
+echo "Install Rails and Bundler(Bundler installs with rails)..."
+gem install Rails
+
+echo "Install Prostgres..."
+brew install postgresql
+
+echo "Install Mongo..."
+brew install mongo
+
+echo "Install Redis..."
+brew install redis
+
+echo "Install Memcache..."
+brew install libmemcached
+brew install memcached
+
+echo "Install Elasticsearch..."
+brew install elasticsearch
+
+echo "Install Docker..."
+brew install docker
+
+echo "Install boot2docker..."
+echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.zshrc
+echo 'export DOCKER_HOST=tcp://192.168.59.103:2376' >> ~/.zshrc
+echo 'export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm' >> ~/.zshrc
+echo 'export DOCKER_TLS_VERIFY=1' >> ~/.zshrc
+echo "Please manually run boot2docker ip and set DOCKER_HOST variable to that ip"
+source ~/.zshrc
+
+echo "Install Heroku ..."
+brew install heroku-toolbelt
+heroku update
+
+echo "Install Aptible..."
+gem install aptible-cli
