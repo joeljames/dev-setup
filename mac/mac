@@ -1,5 +1,23 @@
 #!/bin/bash
 
+brew_install_if_does_not_exist() {
+  if ! brew list | grep "$1"; then
+    echo "Installing '$1'..."
+    brew install "$@"
+  else
+    echo "Package '$1' already exists. Skipping..."
+  fi
+}
+
+brew_cask_install_if_does_not_exist() {
+  if ! brew cask list | grep "$1"; then
+    echo "Installing '$1'..."
+    brew install "$@"
+  else
+    echo "Package '$1' already exists. Skipping..."
+  fi
+}
+
 if test ! $(which brew); then
   echo "Installing Homebrew ..."
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -9,31 +27,22 @@ if test ! $(which brew); then
   brew upgrade
 fi
 
-echo "Installing brew cask ..."
-brew install caskroom/cask/brew-cask
+brew_install_if_does_not_exist 'caskroom/cask/brew-cask'
 
-echo "Installing drop box ..."
-brew cask install dropbox
+brew_cask_install_if_does_not_exist 'dropbox'
 
-echo "Installing google crome ..."
-brew cask install google-chrome
+brew_cask_install_if_does_not_exist 'google-chrome'
 
-echo "Installing tree ..."
-brew install tree
+brew_install_if_does_not_exist 'tree'
 
-echo "Installing wget..."
-brew install wget
+brew_install_if_does_not_exist 'wget'
 
-echo "Installing git and setting up config..."
-brew install git
-git --version
+brew_install_if_does_not_exist 'git'
 wget -P $HOME https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitconfig
 
-echo "Install latest version of python2.7.X..."
-brew install python
+brew_install_if_does_not_exist 'python'
 
-echo "Install latest version of python3..."
-brew install python3
+brew_install_if_does_not_exist 'python3'
 
 echo "Install Python Setup tools..."
 curl https://bootstrap.pypa.io/ez_setup.py -o - | python
@@ -44,8 +53,7 @@ easy_install pip
 echo "Install virtualenv..."
 pip install virtualenv
 
-echo "Install node..."
-brew install node
+brew_install_if_does_not_exist 'node'
 
 echo "Install Rails and Bundler(Bundler installs with rails)..."
 gem install Rails
@@ -53,37 +61,36 @@ gem install Rails
 echo "Installing the foreman..."
 gem install foreman
 
-echo "Install Prostgres..."
-brew install postgresql
+brew_install_if_does_not_exist 'postgresql'
 
-echo "Install Mongo..."
-brew install mongo
+brew_install_if_does_not_exist 'mongo'
 
-echo "Install Redis..."
-brew install redis
+brew_install_if_does_not_exist 'redis'
 
-echo "Install Memcache..."
-brew install libmemcached
-brew install memcached
+brew_install_if_does_not_exist 'libmemcached'
+brew_install_if_does_not_exist 'memcached'
 
-echo "Install Elasticsearch..."
-brew install elasticsearch
+brew_install_if_does_not_exist 'elasticsearch'
 
-echo "Install Docker..."
-brew install docker
+brew_install_if_does_not_exist 'docker'
 
-echo "Install boot2docker..."
-brew install boot2docker
-echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.zshrc
-echo 'export DOCKER_HOST=tcp://192.168.59.103:2376' >> ~/.zshrc
-echo 'export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm' >> ~/.zshrc
-echo 'export DOCKER_TLS_VERIFY=1' >> ~/.zshrc
-echo "Please manually run boot2docker ip and set DOCKER_HOST variable to that ip"
-source ~/.zshrc
+if ! brew list | grep boot2docker; then
+  brew install boot2docker
+  echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.zshrc
+  echo 'export DOCKER_HOST=tcp://192.168.59.103:2376' >> ~/.zshrc
+  echo 'export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm' >> ~/.zshrc
+  echo 'export DOCKER_TLS_VERIFY=1' >> ~/.zshrc
+  echo "Please manually run boot2docker ip and set DOCKER_HOST variable to that ip"
+  source ~/.zshrc
+else
+  echo "Package boot2docker already exists. Skipping..."
+fi
 
-echo "Install Heroku ..."
-brew install heroku-toolbelt
+echo "Install Heroku..."
+wget -qO- https://toolbelt.heroku.com/install.sh | sh
+gem install heroku
 heroku update
 
 echo "Install Aptible..."
+gem install io-console
 gem install aptible-cli
