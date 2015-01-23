@@ -80,14 +80,14 @@ if ! brew list | grep boot2docker; then
   echo 'export DOCKER_HOST=tcp://192.168.59.103:2376' >> ~/.zshrc
   echo 'export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm' >> ~/.zshrc
   echo 'export DOCKER_TLS_VERIFY=1' >> ~/.zshrc
-  echo "Please manually run boot2docker ip and set DOCKER_HOST variable to that ip"
+  echo "export DOCKER_HOST=tcp://$(boot2docker ip 2> /dev/null):2375" >> ~/.zshrc
   source ~/.zshrc
 else
   echo "Package boot2docker already exists. Skipping..."
 fi
 
 echo "Install Heroku..."
-wget -qO- https://toolbelt.heroku.com/install.sh | sh
+brew_install_if_does_not_exist 'heroku-toolbelt'
 gem install heroku
 heroku update
 
