@@ -41,6 +41,8 @@ https://github.com/robbyrussell/oh-my-zsh
 <li> memcached (A key value cache and store)</li>
 <li> elasticsearch (A serach index)</li>
 <li> docker (Build container apps)</li>
+<li> boot2docker (Lightweight Linux distribution to run docker containers)</li>
+<li> docker-compose (Tool for running complex applications with Docker)</li>
 <li> heroku-toolbelt (Tools to interect with Heroku API)</li>
 <li> aptible-cli (Tool to interect with Aptible API)</li>
 </ul>
