@@ -27,7 +27,7 @@ if test ! $(which brew); then
   brew upgrade
 fi
 
-brew_install_if_does_not_exist 'caskroom/cask/brew-cask'
+brew_install_if_does_not_exist 'brew-cask'
 
 brew_cask_install_if_does_not_exist 'dropbox'
 
@@ -38,6 +38,7 @@ brew_install_if_does_not_exist 'tree'
 brew_install_if_does_not_exist 'wget'
 
 brew_install_if_does_not_exist 'git'
+
 wget -P $HOME https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitconfig
 
 brew_install_if_does_not_exist 'python'

@@ -3,3 +3,7 @@
 
 # Text editor
 *.sublime*
+
+# Project
+api.txt
+test
