@@ -16,7 +16,7 @@ Before running the mac set up script. Please install the Xcode from App Store, a
 
 ## Install Dev Tools
 ``` bash
-    source <(curl -s https://github.com/joeljames/dev-setup/blob/master/mac/mac)
+    sh <(curl -s https://raw.githubusercontent.com/joeljames/dev-setup/master/mac/install.sh)
 ```
 
 ## What Gets Installed

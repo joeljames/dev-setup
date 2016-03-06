@@ -12,7 +12,7 @@ brew_install_if_does_not_exist() {
 brew_cask_install_if_does_not_exist() {
   if ! brew cask list | grep "$1"; then
     echo "Installing '$1'..."
-    brew install "$@"
+    brew cask install "$@"
   else
     echo "Package '$1' already exists. Skipping..."
   fi
@@ -46,6 +46,7 @@ brew_install_if_does_not_exist 'wget'
 
 brew_install_if_does_not_exist 'git'
 
+##
 wget -P $HOME https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitconfig
 
 brew_install_if_does_not_exist 'node'
@@ -94,7 +95,7 @@ echo "Install Aptible..."
 gem install io-console
 gem install aptible-cli
 
-brew_install_if_does_not_exist 'brew-cask'
+brew_install_if_does_not_exist 'cask'
 
 brew_cask_install_if_does_not_exist 'dropbox'
 
