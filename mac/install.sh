@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 brew_install_if_does_not_exist() {
   if ! brew list | grep "$1"; then
@@ -51,7 +51,7 @@ wget -P $HOME https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master
 brew_install_if_does_not_exist 'node'
 
 echo "Install Rails and Bundler(Bundler installs with rails)..."
-gem install Rails
+gem install rails
 
 echo "Installing the foreman..."
 gem install foreman
@@ -99,3 +99,6 @@ brew_install_if_does_not_exist 'brew-cask'
 brew_cask_install_if_does_not_exist 'dropbox'
 
 brew_cask_install_if_does_not_exist 'google-chrome'
+
+brew_cask_install_if_does_not_exist 'alfred'
+
