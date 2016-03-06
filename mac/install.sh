@@ -2,28 +2,28 @@
 
 brew_install_if_does_not_exist() {
   if ! brew list | grep "$1"; then
-    echo "Installing '$1'..."
+    echo "Installing '$1'.."
     brew install "$@"
   else
-    echo "Package '$1' already exists. Skipping.."
+    echo "Package '$1' already exists. Skipping."
   fi
 }
 
 brew_cask_install_if_does_not_exist() {
   if ! brew cask list | grep "$1"; then
-    echo "Installing '$1'..."
+    echo "Installing '$1'.."
     brew cask install "$@"
   else
-    echo "Package '$1' already exists. Skipping.."
+    echo "Package '$1' already exists. Skipping."
   fi
 }
 
 gem_install_if_does_not_exist() {
   if ! gem list | grep "$1"; then
-    echo "Installing '$1'..."
+    echo "Installing '$1'.."
     gem install "$@"
   else
-    echo "Gem '$1' already exists. Skipping.."
+    echo "Gem '$1' already exists. Skipping."
   fi
 }
 
@@ -44,10 +44,10 @@ brew_install_if_does_not_exist 'python3'
 echo "Install Python Setup tools..."
 curl https://bootstrap.pypa.io/ez_setup.py -o - | python
 
-echo "Install pip2..."
+echo "Install pip2.."
 easy_install pip
 
-echo "Install virtualenv..."
+echo "Install virtualenv.."
 pip install virtualenv
 
 brew_install_if_does_not_exist 'tree'
