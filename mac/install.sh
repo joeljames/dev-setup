@@ -1,7 +1,7 @@
 #!/bin/sh
 
 brew_install_if_does_not_exist() {
-  if ! $(brew list | grep "$1"); then
+  if ! brew list | grep "$1"; then
     echo "Installing '$1'..."
     brew install "$@"
   else
@@ -10,7 +10,7 @@ brew_install_if_does_not_exist() {
 }
 
 brew_cask_install_if_does_not_exist() {
-  if ! $(brew cask list | grep "$1"); then
+  if ! brew cask list | grep "$1"; then
     echo "Installing '$1'..."
     brew cask install "$@"
   else
@@ -19,7 +19,7 @@ brew_cask_install_if_does_not_exist() {
 }
 
 gem_install_if_does_not_exist() {
-  if ! $(gem list | grep "$1"); then
+  if ! gem list | grep "$1"; then
     echo "Installing '$1'..."
     gem install "$@"
   else
@@ -57,7 +57,7 @@ brew_install_if_does_not_exist 'wget'
 brew_install_if_does_not_exist 'git'
 
 ## Add global gitconfig only if it does not exist
-if ! $(ls -al $HOME | grep ".gitconfig"); then
+if ! ls -al $HOME | grep ".gitconfig"; then
   echo "Adding global gitconfig.."
   wget -P $HOME https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitconfig
 fi
@@ -82,7 +82,7 @@ brew_install_if_does_not_exist 'elasticsearch'
 
 brew_install_if_does_not_exist 'docker'
 
-if ! $(brew list | grep "boot2docker"); then
+if ! brew list | grep "boot2docker"; then
   brew install boot2docker
   echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.zshrc
   echo 'export DOCKER_HOST=tcp://192.168.59.103:2376' >> ~/.zshrc
