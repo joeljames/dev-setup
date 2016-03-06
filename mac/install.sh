@@ -5,7 +5,7 @@ brew_install_if_does_not_exist() {
     echo "Installing '$1'..."
     brew install "$@"
   else
-    echo "Package '$1' already exists. Skipping..."
+    echo "Package '$1' already exists. Skipping.."
   fi
 }
 
@@ -14,12 +14,13 @@ brew_cask_install_if_does_not_exist() {
     echo "Installing '$1'..."
     brew cask install "$@"
   else
-    echo "Package '$1' already exists. Skipping..."
+    echo "Package '$1' already exists. Skipping.."
   fi
 }
 
+## Install Homebrew if it's not already installed
 if test ! $(which brew); then
-  echo "Installing Homebrew ..."
+  echo "Installing Homebrew .."
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.zshrc
   source ~/.zshrc
@@ -46,12 +47,15 @@ brew_install_if_does_not_exist 'wget'
 
 brew_install_if_does_not_exist 'git'
 
-##
-wget -P $HOME https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitconfig
+## Add global gitconfig only if it does not exist
+if ! ls -al $HOME | grep ".gitconfig"; then
+  echo "Adding global gitconfig.."
+  wget -P $HOME https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.gitconfig
+fi
 
 brew_install_if_does_not_exist 'node'
 
-echo "Install Rails and Bundler(Bundler installs with rails)..."
+echo "Install Rails and Bundler(Bundler installs with rails).."
 gem install rails
 
 echo "Installing the foreman..."
@@ -102,4 +106,3 @@ brew_cask_install_if_does_not_exist 'dropbox'
 brew_cask_install_if_does_not_exist 'google-chrome'
 
 brew_cask_install_if_does_not_exist 'alfred'
-
