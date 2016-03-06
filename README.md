@@ -6,18 +6,20 @@ Is a script to set up a MacBook or iMac for local development. It sets up Python
 Manually update the system, For that: Apple Icon > Software Update...
 
 ## Install Command Line tools
-Before running the mac set up script. Please install the Xcode from App Store, and Command Line Tools for Xcode. These include compilers that will allow you to build things from source. You can also install command line tools from the terminal by running the command below
-    ``` bash
-    xcode-select --install
-    ```
+Before running the mac set up script. Please install the Xcode from App Store, and Command Line Tools for Xcode. These include compilers that will allow you to build things from source. You can also install command line tools from the terminal by running the command below:
+
+```
+xcode-select --install
+```
 
 ## Install zsh
 [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh).
 
 ## Install Dev Tools
-    ``` bash
-    sh <(curl -s https://raw.githubusercontent.com/joeljames/dev-setup/master/mac/install.sh)
-    ```
+
+```
+sh <(curl -s https://raw.githubusercontent.com/joeljames/dev-setup/master/mac/install.sh)
+```
 
 ## What Gets Installed
 <ul>
