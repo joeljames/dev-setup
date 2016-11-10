@@ -118,3 +118,12 @@ brew_cask_install_if_does_not_exist 'dropbox'
 brew_cask_install_if_does_not_exist 'google-chrome'
 
 brew_cask_install_if_does_not_exist 'alfred'
+
+brew_cask_install_if_does_not_exist 'virtualbox'
+
+brew_cask_install_if_does_not_exist 'vagrant'
+
+brew_cask_install_if_does_not_exist 'vagrant-manager'
+
+
+

@@ -47,4 +47,10 @@ sh <(curl -s https://raw.githubusercontent.com/joeljames/dev-setup/master/mac/in
 <li> docker-compose (Tool for running complex applications with Docker)</li>
 <li> heroku-toolbelt (Tools to interect with Heroku API)</li>
 <li> aptible-cli (Tool to interect with Aptible API)</li>
+<li> dropbox (Cloud storage service)</li>
+<li> google-chrome (Browser)</li>
+<li> alfred (Productivity application to search you mac and web)</li>
+<li> virtualbox (Hypervisor for x86 computers from Oracle Corporation)</li>
+<li> vagrant (Tool that enables users to create and configure lightweight, reproducible, and portable development environments)</li>
+<li> vagrant-manager (Manager to manage you vagrant machines)</li>
 </ul>
